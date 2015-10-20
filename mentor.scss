@@ -1,0 +1,265 @@
+/*
+ Reset
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0; }
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+/* html { overflow: hidden; } */
+
+body {
+    -webkit-font-smoothing: antialiased!important;
+    color: #585858;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+a, a:visited {
+  color: #46a9d4;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: #daedf6;
+  }
+}
+
+.page {
+  & > .container {
+      margin: 0 auto;
+      max-width: 1060px;
+      padding-top: 6em;
+      width: 75%;
+  }
+
+
+  .tabs {
+      .view-list {
+          list-style-type: none;
+          .view-list-item {
+              display: inline-block;
+              max-width: 250px;
+              vertical-align: top;
+              width: 48%;
+              height: 60px;
+
+              &:last-of-type {
+                  margin-right: 0;
+              }
+
+              a {
+                  background-color: #daedf6;
+                  color: #46a9d4;
+                  display: block;
+                  height: 100%;
+                  padding: .75em 0 0 .9em;
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  width: 100%;
+                  &.active, &:hover {
+                      background-color: #46a9d4;
+                      color: #FFF;
+                  }
+              }
+          }
+      }
+  }
+  section {
+      display: none;
+      padding-top: 2.5em;
+
+      &.active {
+          border-top: 2px solid #46a9d4;
+          display: block;
+      }
+
+      &.user {
+          .message {
+            display: none;
+            border: 2px solid #46a9d4;
+            margin: 0 auto;
+            padding: 1.2em;
+            text-align: center;
+            width: 80%;
+          }
+          form {
+            margin-bottom: 2em;
+              .field {
+                  display: inline-block;
+                  margin-bottom: 1.2em;
+                  vertical-align: top;
+                  width: 100%;
+
+                  label {
+                      display: block;
+                      font-weight: 500;
+                      padding-bottom: .5em;
+                  }
+
+                  input[type="text"] {
+                      border: 2px solid #daedf6;
+                      color: #696969;
+                      font-size: 14px;
+                      height: 50px;
+                      text-indent: 1em;
+                      width: 100%;
+                      &:focus {border-color:#46a9d4; }
+                  }
+                  &.radio {
+                      margin-bottom: 1.2em;
+                      margin-left: 0;
+                      max-width: 211px;
+                      width: 211px;
+
+                      label {
+                          font-weight: 300;
+                          &:first-of-type {
+                              font-weight: 500;
+                          }
+                      }
+                      input[type="radio"]{
+                          margin-right: .75em;
+                      }
+                  }
+                  select {
+                    -webkit-appearance: none;
+                    border: 2px solid #daedf6;
+                    height: 50px;
+                    border-radius: 0;
+                    background: transparent;
+                    font-size: 14px;
+                    padding: .75em 1.2em;
+                    width: 100%;
+                    &:focus {border-color:#46a9d4; }
+                  }
+              }
+
+              input[type="submit"] {
+                  -webkit-appearance: none;
+                  background: none;
+                  border: 1px solid #46a9d4;
+                  color: #46a9d4;
+                  display: block;
+                  font-family: 'Nunito', sans-serif;
+                  font-size: 1em;
+                  margin: 1em 0 0;
+                  padding: .5em 1.2em;
+                  text-transform: uppercase;
+
+                  &:hover {
+                      background-color: #46a9d4;
+                      color: #FFF;
+                  }
+              }
+          }
+      }
+  }
+
+  /* Small Desktop */
+  @media (min-width: 769px) {
+      .tabs {
+          .view-list {
+              .view-list-item {
+                  height: 50px;
+              }
+          }
+      }
+     section {
+          &.user {
+              form {
+                  .field {
+                      margin-left: 15px;
+                      width: 48%;
+                      &:nth-child(odd){
+                        margin-left: 0;
+                      }
+                      &.radio {
+                        width: 100%;
+                        max-width: initial;
+                      }
+                   }
+               }
+           }
+      }
+  }
+
+
+  /* Large Desktop */
+  @media (min-width: 1200px) {
+      .tabs {
+          .view-list {
+              .view-list-item {
+                  //a { padding-top: 1.25em; }
+                  &:last-of-type {
+                      margin-right: 0;
+                  }
+              }
+          }
+      }
+
+      section {
+          &.user {
+              form {
+                  .field {
+                      margin-left: 12px;
+                      max-width: 200px;
+                      width: 18.5%;
+                      &:nth-child(odd){
+                        margin-left: 12px;
+                      }
+
+                      &:first-of-type {
+                          margin-left: 0;
+                      }
+                      &.radio {
+                        width: 18.5%;
+                      }
+                      select {
+                          font-size: 12px;
+                          padding-left: .8em;
+                      }
+                  }
+              }
+          }
+      }
+  }
+}

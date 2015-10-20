@@ -1,0 +1,189 @@
+/*
+ Reset
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0; }
+
+body, html {
+  height: 100%;
+  width: 100%; }
+
+/* html { overflow: hidden; } */
+body {
+  -webkit-font-smoothing: antialiased !important;
+  color: #585858;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  overflow-x: hidden; }
+
+a, a:visited {
+  color: #46a9d4;
+  text-decoration: none; }
+  a:hover, a:visited:hover {
+    text-decoration: underline;
+    color: #daedf6; }
+
+.page {
+  /* Small Desktop */
+  /* Large Desktop */ }
+  .page > .container {
+    margin: 0 auto;
+    max-width: 1060px;
+    padding-top: 6em;
+    width: 75%; }
+  .page .tabs .view-list {
+    list-style-type: none; }
+    .page .tabs .view-list .view-list-item {
+      display: inline-block;
+      max-width: 250px;
+      vertical-align: top;
+      width: 48%;
+      height: 60px; }
+      .page .tabs .view-list .view-list-item:last-of-type {
+        margin-right: 0; }
+      .page .tabs .view-list .view-list-item a {
+        background-color: #daedf6;
+        color: #46a9d4;
+        display: block;
+        height: 100%;
+        padding: .75em 0 0 .9em;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%; }
+        .page .tabs .view-list .view-list-item a.active, .page .tabs .view-list .view-list-item a:hover {
+          background-color: #46a9d4;
+          color: #FFF; }
+  .page section {
+    display: none;
+    padding-top: 2.5em; }
+    .page section.active {
+      border-top: 2px solid #46a9d4;
+      display: block; }
+    .page section.user .message {
+      display: none;
+      border: 2px solid #46a9d4;
+      margin: 0 auto;
+      padding: 1.2em;
+      text-align: center;
+      width: 80%; }
+    .page section.user form {
+      margin-bottom: 2em; }
+      .page section.user form .field {
+        display: inline-block;
+        margin-bottom: 1.2em;
+        vertical-align: top;
+        width: 100%; }
+        .page section.user form .field label {
+          display: block;
+          font-weight: 500;
+          padding-bottom: .5em; }
+        .page section.user form .field input[type="text"] {
+          border: 2px solid #daedf6;
+          color: #696969;
+          font-size: 14px;
+          height: 50px;
+          text-indent: 1em;
+          width: 100%; }
+          .page section.user form .field input[type="text"]:focus {
+            border-color: #46a9d4; }
+        .page section.user form .field.radio {
+          margin-bottom: 1.2em;
+          margin-left: 0;
+          max-width: 211px;
+          width: 211px; }
+          .page section.user form .field.radio label {
+            font-weight: 300; }
+            .page section.user form .field.radio label:first-of-type {
+              font-weight: 500; }
+          .page section.user form .field.radio input[type="radio"] {
+            margin-right: .75em; }
+        .page section.user form .field select {
+          -webkit-appearance: none;
+          border: 2px solid #daedf6;
+          height: 50px;
+          border-radius: 0;
+          background: transparent;
+          font-size: 14px;
+          padding: .75em 1.2em;
+          width: 100%; }
+          .page section.user form .field select:focus {
+            border-color: #46a9d4; }
+      .page section.user form input[type="submit"] {
+        -webkit-appearance: none;
+        background: none;
+        border: 1px solid #46a9d4;
+        color: #46a9d4;
+        display: block;
+        font-family: 'Nunito', sans-serif;
+        font-size: 1em;
+        margin: 1em 0 0;
+        padding: .5em 1.2em;
+        text-transform: uppercase; }
+        .page section.user form input[type="submit"]:hover {
+          background-color: #46a9d4;
+          color: #FFF; }
+  @media (min-width: 769px) {
+    .page .tabs .view-list .view-list-item {
+      height: 50px; }
+    .page section.user form .field {
+      margin-left: 15px;
+      width: 48%; }
+      .page section.user form .field:nth-child(odd) {
+        margin-left: 0; }
+      .page section.user form .field.radio {
+        width: 100%;
+        max-width: initial; } }
+  @media (min-width: 1200px) {
+    .page .tabs .view-list .view-list-item:last-of-type {
+      margin-right: 0; }
+    .page section.user form .field {
+      margin-left: 12px;
+      max-width: 200px;
+      width: 18.5%; }
+      .page section.user form .field:nth-child(odd) {
+        margin-left: 12px; }
+      .page section.user form .field:first-of-type {
+        margin-left: 0; }
+      .page section.user form .field.radio {
+        width: 18.5%; }
+      .page section.user form .field select {
+        font-size: 12px;
+        padding-left: .8em; } }

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" media="screen" href="mentor.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script src="mentor.js">
+    </script>
+
+    <title>New Patient</title>
+
+  </head>
+
+  <body>
+    <div class="page user-new">
+      <div class="container">
+        <!--- /head --->
+
+        <div class="page-top">
+          <div class="container">
+            <nav role="view-tabs" class="tabs">
+              <div class="container">
+                <ul class="view-list">
+
+                  <li class="view-list-item"><a class="view-link active" data-target="user" href="/?location=100">Dr. Shurt's Office</a></li>
+                  <li class="view-list-item"><a class="view-link" data-target="location"  href="/?location=101">Hillsboro</a></li>
+                </ul>
+
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="page-main">
+          <div class="container">
+
+            <section id="user" class="user active">
+              <div class="container">
+
+                <div class="content">
+                  <form id="#new-user" action="/user/new">
+                    <fieldset>
+                      <div class="field">
+                        <label for="member-id"><span>Member ID</span></label>
+                        <input type="text" name="member-id" value="">
+                      </div>
+                      <div class="field">
+                        <label for="last-name"><span>Last Name</span></label>
+                        <input type="text" name="last-name" value="">
+                      </div>
+                      <div class="field">
+                        <label for="first-name"><span>First Name</span></label>
+                        <input type="text" name="first-name" value="">
+                      </div>
+                      <div class="field date">
+                        <label for="start-date"><span>Eligibility Start Date</span></label>
+                        <input type="text" name="start-date" id="date" value="">
+                      </div>
+                      <div class="field select carriers">
+                        <label for="carrier"><span>Insurance Carrier</span></label>
+                        <select name="carriers">
+                        </select>
+                      </div>
+                      <div class="field radio providers">
+                        <label for="provider"><span>Primary Care Provider</span></label>
+                      </div>
+                      <div class="field radio status">
+                        <label for="status"><span>Status</span></label>
+                        <label><input type="radio" name="status" value="1">Eligible</label>
+                        <label><input type="radio" name="status" value="0">Ineligible</label>
+                        <label><input type="radio" name="status" value="2">Termed</label>
+                      </div>
+                    </fieldset>
+                    <input type="submit" class="action" value="submit" />
+
+                  </form>
+                  <div class="message"><span>New User added. <a href="">Click here</a> to add another.
+                </div>
+            </section>
+
+            <section id="location" class="location">
+              <div class="container">
+                <div class="content">
+                  <p>Lorem Ipsum</p>
+                </div>
+            </section>
+          </div>
+        </div><!-- /page-main -->
+
+      </div>
+    </div><!-- /page -->
+
+    <script type="text/javascript">
+     $( document ).ready(function() {
+       $( "#date" ).datepicker();
+
+       $(".view-link").on("click", function(evt){
+         evt.preventDefault();
+         if ( !$(this).hasClass("active") ) {
+           $(".view-link").toggleClass("active");
+           $("section").toggleClass("active");
+         }
+       });
+
+       var controller = new controllerUserNew;
+
+       //Draw form elements
+       for ( var i=0; i< controller.carriers.length; i++ ) {
+         $("select[name='carriers']").append('<option value="' + controller.carriers[i].id +'">'+ controller.carriers[i].name + '</option>');
+       }
+
+       for ( var i=0; i< controller.providers.length; i++ ) {
+         $(".providers").append('<label><input type="radio" name="provider" value="' + controller.providers[i].id +'">' + controller.providers[i].name +'</label>')
+       }
+
+       $("form").submit(function(evt){
+         evt.preventDefault();
+
+         //Form validation would go here
+         var newUser = new User;
+
+         $.each($(this).serializeArray(), function(obj, kv) {
+           newUser[kv.name] = kv.value;
+         });
+
+         if ( newUser.save() ) {
+           $(this).hide();
+           $(".message").show();
+
+           console.log(newUser);
+         }
+       });
+
+
+
+     });
+
+
+
+    </script>
+
+  </body>
+</html>
